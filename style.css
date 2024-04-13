@@ -1,0 +1,201 @@
+
+:root{
+    --primary-color:#fec544;
+    --background-color:#0a101e;
+    --transition-duration:0.3s;
+}
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Cairo',sans-serif;
+    /* overflow-: hidden; */
+}
+a{
+    text-decoration: none;
+    color:black
+}
+ul{
+    list-style-type: none;
+}
+img{
+    width: 100%;
+}
+.container{
+    width: 90%;
+    margin:auto;
+    /* min-height: 100vh; */
+    max-width:1250px;
+}
+section{
+    background-color: var(--background-color);
+    padding-bottom:50px;
+
+}
+section .title{
+    text-align: center;
+    color:var(--primary-color);
+    font-size:3rem;
+    position: relative;
+    z-index: 1;
+    margin-bottom:50px;
+}
+section .title::before{
+    content:attr(title);
+    text-transform: uppercase;
+    position: absolute;
+    font-size:2em;
+    color:rgba(21, 27, 41, 0.5);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+@media(max-width:560px){
+    section .title::before{
+        font-size:1.5em;
+        
+    }
+}
+@media(max-width:410px){
+    section .title::before{
+        font-size:1em;
+        top:80%;
+        
+    }
+}
+/*Header Begin*/
+header{
+    padding:1.5em;
+    background-color: var(--background-color);
+}
+nav ul {
+    display: flex;
+    gap:20px;
+    justify-content: center;
+    font-size:clamp(1rem, calc(1rem + 0.5vw) , 2rem);
+}
+nav ul li a{
+    color:white;
+}
+nav ul li.active a{
+    color:var(--primary-color);
+}
+/*Header End*/
+/*Intro Section Begin*/
+
+    #intro .text-image{
+        display: flex;
+        justify-content: space-between;
+        gap:50px;
+        align-items: center;
+    }
+    #intro .text-image .image{
+        width: 500px;
+        max-width:500px;
+        height: 500px;
+        background-color:var(--primary-color);
+        border-radius: 50%;
+        background-image: url(images/Gebraiel.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation:slide-left 0.9s ease-out forwards;
+    }
+
+    @media(max-width:768px){
+        
+        #intro .text-image{
+            flex-direction: column-reverse;
+            text-align: center;
+        }
+        #intro .text-image .image{
+            width:200px;
+            height: 200px;
+        }
+    }
+    @keyframes slide-left {
+        0%{
+            background-position: 500px 0%;
+        }
+        100%{
+            background-position: 0% 0%;
+        }
+    }
+    #intro .text small{
+        color:var(--primary-color);
+        font-size:1.5rem;
+    }
+    #intro .text h1{
+        color:white;
+        font-size:clamp(4rem,calc(2vw + 3rem),6rem);
+        line-height: 1.2;
+    }
+    #intro .text h2{
+        color:#a9adb8;
+        font-size: calc(1.2rem + 2vw);
+        line-height: 1.2;
+        margin-bottom:10px;
+    }
+    #intro .text a{
+        background-color: var(--primary-color);
+        font-size:1.2rem;
+        border:none;
+        padding:0.2em 2em;
+        border-radius: 20px;
+        cursor: pointer;
+        transition:var(--transition-duration) ;
+        font-family: "Cairo",sans-serif;
+    }
+    #intro .text a:hover{
+        box-shadow: 0px 5px 10px -5px var(--primary-color);
+    }
+
+/*Intro Section End*/
+/*Folio Section Begin*/
+#folio .projects{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap:30px;
+    transition:0.3s;
+}
+#folio .project{
+    position: relative;
+    cursor: pointer;
+    /* border-radius: 15px; */
+}
+#folio .project::after{
+    content:"";
+    background-color: #0a101e40;
+    display: block;
+    width: 100%;
+    height: 100%;
+    outline: 10px solid var(--primary-color);
+    outline-offset: 10px;
+    border-radius: 15px;
+    position: absolute;
+    z-index: 1;
+    transform: scale(0);
+    transition: 0.3s;
+    left: 0px;
+    top: 0;
+}
+#folio .project:hover::after{
+    transform: scale(1);
+}
+#folio .project .image{
+    overflow: hidden;
+    height: 100%;
+    border-radius: 15px;
+}
+#folio .project .image img{
+    transition: 0.3s;
+    height: 100%;
+}
+#folio .project:hover .image img{
+    transform: scale(1.5) rotate(10deg);
+}
+/*Folio Section End*/
+
