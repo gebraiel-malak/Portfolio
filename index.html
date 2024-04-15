@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://kit.fontawesome.com/1a11e246e6.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
@@ -16,8 +17,8 @@
         <nav>
             <ul>
                 <li class="active"><a href="">About</a></li>
-                <li><a href="">Folio</a></li>
-                <li><a href="">Contact</a></li>
+                <li class=""><a href="#skills">Skills</a></li>
+                <li><a href="#folio">Folio</a></li>
             </ul>
         </nav>
     </header>
@@ -36,6 +37,40 @@
                 </div>
             </div>
         </section>
+        <section id="skills">
+            <div class="container">
+                <div class="title" title="Skills">Skills</div>
+                <div class="skills">
+                    <div class="skill" delay="0s">
+                        <div class="icon">
+                            <i class="fa-brands fa-html5"></i>
+                        </div>
+                        <h5>HTML</h5>
+                    </div>
+                    <div class="skill" delay="0.2s">
+                        <div class="icon">
+                            <i class="fa-brands fa-css3-alt"></i>
+                        </div>
+                        <h5>CSS</h5>
+                    </div>
+                    <div class="skill"delay="0.4s">
+                        <div class="icon">
+                            <i class="fa-brands fa-js"></i>
+                        </div>
+                        <h5>Javascript</h5>
+                    </div>
+                    
+                    <div class="skill" delay="0.5s">
+                        <div class="icon">
+                            <i class="fa-brands fa-wordpress"></i>
+                        </div>
+                        <h5>Wordpress</h5>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
         <section id="folio">
             <div class="container">
                 <div class="title" title="showcases">
@@ -46,11 +81,8 @@
                         <div class="image">
                             <img src="images/project.jpg" alt="">
                         </div>
-                    </div>
-
-                    <div class="project">
-                        <div class="image">
-                            <img src="images/project.jpg" alt="">
+                        <div class="details">
+                            <b>Project Name</b>
                         </div>
                     </div>
 
@@ -58,11 +90,8 @@
                         <div class="image">
                             <img src="images/project.jpg" alt="">
                         </div>
-                    </div>
-
-                    <div class="project">
-                        <div class="image">
-                            <img src="images/project.jpg" alt="">
+                        <div class="details">
+                            <b>Project Name</b>
                         </div>
                     </div>
 
@@ -70,30 +99,103 @@
                         <div class="image">
                             <img src="images/project.jpg" alt="">
                         </div>
+                        <div class="details">
+                            <b>Project Name</b>
+                        </div>
                     </div>
 
                     <div class="project">
                         <div class="image">
                             <img src="images/project.jpg" alt="">
                         </div>
+                        <div class="details">
+                            <b>Project Name</b>
+                        </div>
                     </div>
+
                     <div class="project">
                         <div class="image">
                             <img src="images/project.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <b>Project Name</b>
+                        </div>
+                    </div>
+
+                    <div class="project">
+                        <div class="image">
+                            <img src="images/project.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <b>Project Name</b>
                         </div>
                     </div>
                     <div class="project">
                         <div class="image">
                             <img src="images/project.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <b>Project Name</b>
+                        </div>
+                    </div>
+                    <div class="project">
+                        <div class="image">
+                            <img src="images/project.jpg" alt="">
+                        </div>
+                        <div class="details">
+                            <b>Project Name</b>
                         </div>
                     </div>
 
                 </div>
             </div>
         </section>
-
+    
     </main>
-    <footer></footer>
+    <footer>
+       <div class="container">
+        <span>Developed By <strong>Gebraiel Malak </strong></span>
+        <div>
+            <ul>
+                <li>
+                    <a class="fa-brands fa-linkedin-in" target="_blank" href="https://www.linkedin.com/in/gebraiel-malak-2aa4541b7"></a>
+                </li>
+                <li>
+                    <a class="fa-brands fa-facebook" target="_blank" href="https://www.facebook.com/gogomalak.adly"></a>
+                </li>
+                <li>
+                    <a class="fa-brands fa-github" target="_blank" href="https://github.com/gebraiel-malak"></a>
+                </li>
+                <li>
+                    <a class="fa-brands fa-codepen" target="_blank" href="https://codepen.io/gebraiel"></a>
+                </li>
+            </ul>
+        </div>
+       </div>
+    </footer>
+
+    <script>
+        let section=document.querySelector('#skills');
+        let skills = document.querySelectorAll('.skill');
+
+        let observer= new IntersectionObserver(entries=>{
+            console.log(entries);
+            entries.forEach((entry)=>{
+                // console.log(entry);
+                let skills = entry.target.querySelectorAll('.skill');
+                console.log(skills);
+                skills.forEach((skill)=>{
+                    // console.log(skill);
+                    let delay = skill.getAttribute('delay');
+                    console.log(delay);
+                    skill.style=`animation:fade-in 0.5s ${delay} forwards`; 
+                    console.log(skill);
+                });
+                
+            })
+        })
+        observer.observe(document.querySelector('.skills'));
+    </script>
 </body>
 
 </html>
